@@ -1,0 +1,74 @@
+{
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "total_MiB": 8187.5,
+  "free_MiB_at_start": 7054.0,
+  "backbone_resident_MiB": 265.05615234375,
+  "safe_fraction": 0.8,
+  "results": {
+    "256": {
+      "safe_batch": 256,
+      "first_oom_batch": null,
+      "largest_ok_batch": 256,
+      "spill_from_batch": null,
+      "rows": [
+        {
+          "batch": 256,
+          "peak_MiB": 3787.306640625,
+          "status": "ok"
+        }
+      ]
+    },
+    "384": {
+      "safe_batch": 192,
+      "first_oom_batch": null,
+      "largest_ok_batch": 256,
+      "spill_from_batch": 256,
+      "rows": [
+        {
+          "batch": 256,
+          "peak_MiB": 8195.431640625,
+          "status": "ok"
+        },
+        {
+          "batch": 192,
+          "peak_MiB": 6215.431640625,
+          "status": "ok"
+        }
+      ]
+    },
+    "512": {
+      "safe_batch": 112,
+      "first_oom_batch": null,
+      "largest_ok_batch": 256,
+      "spill_from_batch": 256,
+      "rows": [
+        {
+          "batch": 256,
+          "peak_MiB": 14355.431640625,
+          "status": "ok"
+        },
+        {
+          "batch": 192,
+          "peak_MiB": 10835.431640625,
+          "status": "ok"
+        },
+        {
+          "batch": 160,
+          "peak_MiB": 9075.431640625,
+          "status": "ok"
+        },
+        {
+          "batch": 128,
+          "peak_MiB": 7315.431640625,
+          "status": "ok"
+        },
+        {
+          "batch": 112,
+          "peak_MiB": 6435.431640625,
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  "reproducible": true
+}

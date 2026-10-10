@@ -1,0 +1,78 @@
+{
+    "generated_at":  "2026-10-10 10:19:20 +08:00",
+    "host":  "LAPTOP-CSP8HPP8",
+    "root":  "F:\\research",
+    "method":  "codeload ZIP pinned to commit SHA (git clone stalls on this machine)",
+    "sources":  [
+                    {
+                        "name":  "patchcore-inspection",
+                        "kind":  "repo",
+                        "source_url":  "https://github.com/amazon-science/patchcore-inspection",
+                        "commit_sha":  "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+                        "upstream_date":  "2023-03-06",
+                        "downloaded_at":  "2026-10-10 10:19:16 +08:00",
+                        "archive":  "F:\\research\\archive\\sources\\patchcore-inspection-fcaa92f124.zip",
+                        "archive_bytes":  2322761,
+                        "archive_sha256":  "7FDBA8B2B1D3586BF16A3EDAD7A2D279E323DA575F3B206BC5A1AE72B439F072",
+                        "extracted_dir":  "F:\\research\\repos\\patchcore-inspection",
+                        "file_count":  401,
+                        "total_bytes":  2233562,
+                        "tree_fingerprint":  "419fbc575b1bfac2b00232e13cc26faee52548cb3768762d3441f4a246be7d27",
+                        "note":  "R1 official PatchCore (baseline)"
+                    },
+                    {
+                        "name":  "AnomalyDINO",
+                        "kind":  "repo",
+                        "source_url":  "https://github.com/dammsi/AnomalyDINO",
+                        "commit_sha":  "b9d1c2648e3a5247437d4d953d907a8f3d994457",
+                        "upstream_date":  "2025-12-17",
+                        "downloaded_at":  "2026-10-10 10:19:18 +08:00",
+                        "archive":  "F:\\research\\archive\\sources\\AnomalyDINO-b9d1c2648e.zip",
+                        "archive_bytes":  1535411,
+                        "archive_sha256":  "975643A41599C94A43320F272401F9831435804994D382E7FD6D577C4A15D7DF",
+                        "extracted_dir":  "F:\\research\\repos\\AnomalyDINO",
+                        "file_count":  14,
+                        "total_bytes":  1994053,
+                        "tree_fingerprint":  "d23f5352fa6b04754741b16063b2a5cfdfb9aca0f8541df125e256893bc7598d",
+                        "note":  "R2 official AnomalyDINO (baseline)"
+                    },
+                    {
+                        "name":  "mvtec_ad_evaluation",
+                        "kind":  "tarball",
+                        "source_url":  "https://www.mydrive.ch/shares/150450/bb24b914a28ddd2b5e35bd53d23177cd/download/439517473-1665675012/mvtec_ad_evaluation.tar.xz",
+                        "commit_sha":  null,
+                        "upstream_date":  "2022-10-13",
+                        "downloaded_at":  "2026-10-10 10:19:20 +08:00",
+                        "archive":  "F:\\research\\archive\\sources\\mvtec_ad_evaluation.tar.xz",
+                        "archive_bytes":  11056,
+                        "archive_sha256":  "DFCDA7D67EEE25316EC6AE5042C0B1684A4CABF33B2346BE351E2CE36013F220",
+                        "extracted_dir":  "F:\\research\\archive\\sources\\mvtec_ad_evaluation_extracted",
+                        "file_count":  11,
+                        "total_bytes":  39331,
+                        "tree_fingerprint":  "74059be40be7d12ecd1fa72573c3239b7ea054aa9094333bdaf13e7a3f129dae",
+                        "note":  "Official MVTec AD evaluation code (public direct link, no form)"
+                    }
+                ],
+    "key_file_checks":  [
+                            {
+                                "label":  "PatchCore requirements.txt",
+                                "path":  "F:\\research\\repos\\patchcore-inspection\\requirements.txt",
+                                "exists":  true
+                            },
+                            {
+                                "label":  "PatchCore bin/run_patchcore.py",
+                                "path":  "F:\\research\\repos\\patchcore-inspection\\bin\\run_patchcore.py",
+                                "exists":  true
+                            },
+                            {
+                                "label":  "AnomalyDINO run_anomalydino.py",
+                                "path":  "F:\\research\\repos\\AnomalyDINO\\run_anomalydino.py",
+                                "exists":  true
+                            },
+                            {
+                                "label":  "AnomalyDINO src/detection.py",
+                                "path":  "F:\\research\\repos\\AnomalyDINO\\src\\detection.py",
+                                "exists":  true
+                            }
+                        ]
+}

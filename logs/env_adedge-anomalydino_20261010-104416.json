@@ -1,0 +1,43 @@
+{
+  "env_name": "adedge-anomalydino",
+  "python": "3.10.22",
+  "executable": "C:\\Users\\yuantai\\.conda\\envs\\adedge-anomalydino\\python.exe",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "torch_cuda": "12.4",
+  "cudnn": 90100,
+  "cuda_available": true,
+  "device": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "capability": [
+    8,
+    9
+  ],
+  "total_mem_MiB": 8187.5,
+  "gpu_smoke": "OK",
+  "gpu_smoke_peak_MiB": 70.0,
+  "probe_backbone": "wide_resnet50_2(weights=None)",
+  "resolution_limit": {
+    "256": {
+      "batch": 16,
+      "peak_MiB": 540.3
+    },
+    "384": {
+      "batch": 16,
+      "peak_MiB": 807.5
+    },
+    "512": {
+      "batch": 16,
+      "peak_MiB": 1192.5
+    }
+  },
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.7.2",
+  "faiss-cpu": "1.15.1",
+  "opencv-python": "4.10.0.84",
+  "pillow": "12.3.0",
+  "pandas": "2.3.3",
+  "matplotlib": "3.10.9",
+  "timm": "1.0.30",
+  "anomalib": null
+}
