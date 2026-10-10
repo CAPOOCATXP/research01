@@ -11,3 +11,6 @@ __pycache__/
 *.pth
 *.pt
 *.onnx
+_pv*/
+_preview*/
+_checks.json
