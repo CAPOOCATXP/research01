@@ -52,7 +52,7 @@ Phase 0 中**不依赖数据集的部分已全部完成且留有可复现证据*
    **排期影响**：Phase 2 的复现、按划分列图像与标签、PatchCore 最小示例、AnomalyDINO 冒烟**全部顺延**；
    **MVTec AD 2 带私有测试服务器、不存在可用镜像，必须走官方渠道**。关键路径目前就卡在这一步。
 2. **`git clone` 在本机阻塞**（`ls-remote` 正常，pack 传输 5 分钟无输出；已试 5 种参数组合）。已改用 ZIP 快照 + commit SHA + 树指纹并写入方法学。需要：认可该方式或提供可用代理。
-3. ~~`gh` CLI 未安装~~ **已解决**：改用 SSH 专用密钥 `~/.ssh/id_ed25519_github` 直接推送，`main` 分支已上传到 `github.com/CAPOOCATXP/research01`。`gh` 仍然缺失，但本阶段不需要它。
+3. **gh CLI 未安装 → 已解决**：改用 SSH 专用密钥 `~/.ssh/id_ed25519_github` 直接推送，`main` 分支已上传到 `github.com/CAPOOCATXP/research01`。`gh` 仍然缺失，但本阶段不需要它。
 
 ## 4. Next（Week 2 前三件事）
 
