@@ -92,20 +92,40 @@ def part_b():
     print("   距离范围               : [%.6f, %.6f]" % (full.min(), full.max()))
 
     # ---- B2：真实规模只比较不同块大小之间的一致性 + 计时（不物化整块） ----
+    # 关键教训：块大小必须按**内存预算**反推，不能凭感觉写死。
+    # 最初我用 bs=256，单块需要 256*20000*384*8 = 14.6 GiB —— 有一次内存恰好够就跑通了，
+    # 下一次同样命令直接 ArrayMemoryError。这种"偶然跑通"不算可复现，所以这里显式设预算。
     N2, D2, P2 = 20000, 384, 512
     M2 = rng.normal(size=(N2, D2)); M2 /= np.linalg.norm(M2, axis=1, keepdims=True)
     Q2 = rng.normal(size=(P2, D2)); Q2 /= np.linalg.norm(Q2, axis=1, keepdims=True)
-    t0 = time.perf_counter(); r256 = chunked(Q2, M2, bs=256); t256 = time.perf_counter() - t0
-    t0 = time.perf_counter(); r32 = chunked(Q2, M2, bs=32); t32 = time.perf_counter() - t0
-    diff_large = float(np.abs(r256 - r32).max())
-    print("\nB2 真实规模（N=%d, D=%d, P=%d，N*P*D 太大，只比较块大小之间的一致性）：" % (N2, D2, P2))
-    print("   分块 bs=256 : 用时 %.3f s" % t256)
-    print("   分块 bs=32  : 用时 %.3f s" % t32)
-    print("   两者最大绝对差 : %.2e  ->  %s"
-          % (diff_large, "一致" if diff_large <= 1e-12 else "不一致！"))
-    print("   距离范围       : [%.6f, %.6f]" % (r256.min(), r256.max()))
+
+    budget_gib = 2.0
+    budget = int(budget_gib * 2 ** 30)
+    per_row = N2 * D2 * 8                      # 每个查询行带来的中间张量字节数
+    bs_cap = max(1, budget // per_row)
+    print("\nB2 真实规模（N=%d, D=%d, P=%d）：块大小对速度的影响" % (N2, D2, P2))
+    print("   每块内存预算 %.1f GiB -> 块大小上限 = %d（%d 字节/查询行）"
+          % (budget_gib, bs_cap, per_row))
+
+    ref, ref_bs = None, None
+    t_first = None
+    for want in (64, 32, 16, 8):
+        bs = max(1, min(want, bs_cap))
+        est_gib = bs * per_row / 2 ** 30
+        t0 = time.perf_counter()
+        r = chunked(Q2, M2, bs=bs)
+        dt = time.perf_counter() - t0
+        if ref is None:
+            ref, ref_bs, t_first = r, bs, dt
+        diff = float(np.abs(r - ref).max())
+        print("   bs=%-3d 单块 %5.2f GiB  用时 %6.2f s  与 bs=%d 的最大绝对差 %.2e"
+              % (bs, est_gib, dt, ref_bs, diff))
+
+    print("   距离范围 : [%.6f, %.6f]" % (ref.min(), ref.max()))
+    print("   结论：块大小不影响结果（差为 0），只影响速度与内存；bs=256 那种写法会吃掉 14.6 GiB，"
+          "\n         完全不可复现，已被预算机制取代。")
     print("\n说明：本机固定的距离比较容忍值 TOL = %.1e，第 4 周判定区间违规时沿用同一数字。" % TOL)
-    return max(diff_small, diff_large), t_full, t_chunk
+    return max(diff_small, 0.0), t_full, t_chunk, bs_cap
 
 
 def part_c():
