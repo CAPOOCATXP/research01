@@ -295,7 +295,7 @@ def main():
     mf = out_dir / "manifest.json"
     mf.write_text(json.dumps({
         "generated_by": "scripts/make_figures.py",
-        "repo_root": str(ROOT),
+        "note": "所有路径都相对仓库根；manifest 本身也必须位级可复现，故不记录任何绝对路径",
         "figures": manifest,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n清单：{mf}（{len(manifest)} 个文件）")

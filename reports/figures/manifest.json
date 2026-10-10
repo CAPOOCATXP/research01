@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/make_figures.py",
-  "repo_root": "F:\\research",
+  "note": "所有路径都相对仓库根；manifest 本身也必须位级可复现，故不记录任何绝对路径",
   "figures": [
     {
       "figure": "figure_1_vram_limits.pdf",
