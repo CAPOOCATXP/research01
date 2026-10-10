@@ -263,6 +263,7 @@ GPU float32 的路径差异比它大**两个数量级**。第 4–6 周为区间
 | `week1\W1_EVIDENCE.md` | 本文件 |
 | `week1\W1_WEEKLY_REPORT.md` / `.pdf` | 一页周报（md 为源，pdf 为交付） |
 | `week1\W1_READING_NOTES.md` | 阅读提纲 + 三个三角不等式例子 + 五个问题 |
+| `week1\W1_WALKTHROUGH.md` / `.pdf` | **逐步讲解**：本周每一步做了什么、怎么做、看哪个文件、例子 |
 | `scripts\fetch_sources.ps1` | 源码锚定（ZIP + commit + 树指纹） |
 | `scripts\check_env.ps1` | 环境验收（GPU 冒烟 + 分辨率上限 + freeze 留档） |
 | `scripts\make_manifests.py` | 三角色清单生成与互斥复查（含自检模式） |

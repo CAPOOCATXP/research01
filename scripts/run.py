@@ -49,7 +49,7 @@ CANDIDATES = [
 
 
 def has_torch(py: str) -> bool:
-    try:
+     try:
         r = subprocess.run([py, "-c", "import torch"], stdout=subprocess.DEVNULL,
                            stderr=subprocess.DEVNULL)
         return r.returncode == 0

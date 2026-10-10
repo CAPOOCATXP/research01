@@ -36,6 +36,10 @@ TABLE_SPECS = {
     "任务": dict(widths=[8.0, 1.1, 4.6, 3.9], landscape=False, size=8.0),
     "分辨率": dict(widths=[2.2, 2.0, 2.2, 2.2, 9.0], landscape=False, size=8.0),
     "#": dict(widths=[0.9, 8.4, 5.4, 2.3], landscape=False, size=9.0),
+    "环境": dict(widths=[2.9, 1.5, 1.4, 1.7, 2.3, 4.0, 2.5], landscape=False, size=7.6),
+    "查询": dict(widths=[1.7, 2.5, 2.2, 2.1, 2.1, 2.7, 3.8, 3.6], landscape=True, size=8.5),
+    "文件": dict(widths=[4.9, 2.3, 4.7, 5.5], landscape=False, size=8.0),
+    "目录": dict(widths=[3.0, 6.6, 8.0], landscape=False, size=8.5),
 }
 
 
@@ -138,7 +142,10 @@ def configure_section(section, landscape=False):
 
 
 def split_row(line):
-    return [c.strip() for c in line.strip().strip("|").split("|")]
+    # Markdown 表格里用 \| 表示单元格内的竖线（例如命令行里的管道符），
+    # 先用占位符保护再切分，否则会把一行切成多格。
+    s = line.strip().strip("|").replace("\\|", "\x00")
+    return [c.strip().replace("\x00", "|") for c in s.split("|")]
 
 
 def is_sep(line):
@@ -151,6 +158,33 @@ def build(doc, lines):
         stripped = lines[i].strip()
         if not stripped or re.fullmatch(r"-{3,}", stripped):
             i += 1
+            continue
+
+        # fenced code block  ```lang ... ```
+        if stripped.startswith("```"):
+            i += 1
+            buf = []
+            while i < n and not lines[i].strip().startswith("```"):
+                buf.append(lines[i].rstrip())
+                i += 1
+            i += 1  # 跳过收尾的 ```
+            if buf:
+                p = doc.add_paragraph()
+                pf = p.paragraph_format
+                pf.left_indent = Cm(0.4)
+                pf.space_before = Pt(4)
+                pf.space_after = Pt(6)
+                pf.line_spacing = 1.0
+                pPr = p._p.get_or_add_pPr()
+                shd = OxmlElement("w:shd")
+                shd.set(qn("w:val"), "clear")
+                shd.set(qn("w:color"), "auto")
+                shd.set(qn("w:fill"), "F4F4F4")
+                pPr.append(shd)
+                for k, ln in enumerate(buf):
+                    if k:
+                        p.add_run().add_break()
+                    style_run(p.add_run(ln), MONO, MONO, 8.2)
             continue
 
         # table
@@ -168,9 +202,11 @@ def build(doc, lines):
             t.style = "Table Grid"
             t.alignment = WD_TABLE_ALIGNMENT.CENTER
             t.autofit = False
+            ncol = len(block[0])
             for r_idx, row in enumerate(block):
                 cells = t.add_row().cells
-                for c_idx, text in enumerate(row):
+                for c_idx in range(ncol):
+                    text = row[c_idx] if c_idx < len(row) else ""
                     cell = cells[c_idx]
                     cell.text = ""
                     p = cell.paragraphs[0]
@@ -185,10 +221,15 @@ def build(doc, lines):
                         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 if r_idx == 0:
                     repeat_header(t.rows[0])
-            if spec["widths"] and len(spec["widths"]) == len(block[0]):
+            widths = spec["widths"]
+            if not widths:
+                _s = doc.sections[-1]
+                _usable = (_s.page_width - _s.left_margin - _s.right_margin) / 360000.0
+                widths = [_usable / float(len(block[0]))] * len(block[0])
+            if len(widths) == len(block[0]):
                 for row in t.rows:
                     for idx, cell in enumerate(row.cells):
-                        cell.width = Cm(spec["widths"][idx])
+                        cell.width = Cm(widths[idx])
             if spec["landscape"]:
                 configure_section(doc.add_section(WD_SECTION.NEW_PAGE), landscape=False)
             continue
