@@ -1,0 +1,60 @@
+{
+  "generated_by": "scripts/make_figures.py",
+  "repo_root": "F:\\research",
+  "figures": [
+    {
+      "figure": "figure_1_vram_limits.pdf",
+      "sha256": "78037e093208a9b2f703dd3d02afe4fde0d4d509617d594324f7c89bf3483d07",
+      "bytes": 53212,
+      "sources": [
+        "logs/w1_vram_limit.json"
+      ],
+      "note": "实测点来自显存扫描；直线是由实测点拟合的线性模型（peak = 常驻 + k×batch）"
+    },
+    {
+      "figure": "figure_1_vram_limits.png",
+      "sha256": "2792351eb245cb687998836c118781ffb018474d8d41c0a8b0f1642cb1376bb4",
+      "bytes": 100320,
+      "sources": [
+        "logs/w1_vram_limit.json"
+      ],
+      "note": "实测点来自显存扫描；直线是由实测点拟合的线性模型（peak = 常驻 + k×batch）"
+    },
+    {
+      "figure": "figure_2_bounds_geometry.pdf",
+      "sha256": "4fffb7c18ad6817bca70c70611103c7651b3d6104cd27c0aa919a6f488db1858",
+      "bytes": 55576,
+      "sources": [
+        "project/src/w1_bounds_example.py（同一组常数）"
+      ],
+      "note": "确定性示意图，不含随机数；区间由 A8 的 L/U 公式直接计算"
+    },
+    {
+      "figure": "figure_2_bounds_geometry.png",
+      "sha256": "55b38ca083319e7b9a881ad67d501c71f344aea0297b9654a3dc0566e90f179b",
+      "bytes": 80066,
+      "sources": [
+        "project/src/w1_bounds_example.py（同一组常数）"
+      ],
+      "note": "确定性示意图，不含随机数；区间由 A8 的 L/U 公式直接计算"
+    },
+    {
+      "figure": "figure_3_decision_map.pdf",
+      "sha256": "257087c37cad739b8c64ef4228d799b6fa4eef38a5b213ae865f4f9e189629d8",
+      "bytes": 46702,
+      "sources": [
+        "project/src/w1_bounds_example.py（同一组常数）"
+      ],
+      "note": "网格为确定性采样；黄色占比是该视野内的升级率，不是数据集上的升级率"
+    },
+    {
+      "figure": "figure_3_decision_map.png",
+      "sha256": "22dab8a284bae29a835df92b17373e38ff94226e1672aa425a3fdca91cbc28c7",
+      "bytes": 60367,
+      "sources": [
+        "project/src/w1_bounds_example.py（同一组常数）"
+      ],
+      "note": "网格为确定性采样；黄色占比是该视野内的升级率，不是数据集上的升级率"
+    }
+  ]
+}
