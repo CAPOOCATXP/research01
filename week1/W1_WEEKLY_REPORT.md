@@ -38,11 +38,21 @@ Phase 0 中**不依赖数据集的部分已全部完成且留有可复现证据*
 - **日志**：`logs\anchors_latest.json`、`logs\env_adedge-patchcore_20261010-102504.json`、`logs\w1_distance_checks.log`、`logs\w1_vram_limit.json`
 - **复现**：`powershell -ExecutionPolicy Bypass -File F:\research\scripts\check_env.ps1 -Python "C:\Users\yuantai\.conda\envs\adedge-patchcore\python.exe" -EnvName adedge-patchcore -Root F:\research`
 
+- **代码推送**：`git@github.com:CAPOOCATXP/research01.git`（branch `main`，首次推送成功；SSH 专用密钥 `~/.ssh/id_ed25519_github`）
+
 ## 3. Blockers
 
-1. **数据未获批**：官网为 "Fill in the form"；官方评测码可直链下载且已获取，**未绕开登记用第三方镜像**。需要：确认能否以学校/导师名义登记。
+1. **数据获取受阻（本周最主要问题）**：官网为 "Fill in the form"；官方评测码可直链下载且已获取，**未绕开登记用第三方镜像**。需要：请导师以学校邮箱登记，或明确授权使用某个具体镜像。
+
+   **已核实的事实**：MVTec AD 官方页面写明数据以 **CC BY-NC-SA 4.0** 发布——该许可**允许再分发**
+   （署名 + 非商用 + 相同方式共享），因此第三方镜像在法律上可用；但问题在于 ① 偏离导师指定的"官方来源"，
+   ② 镜像可能被裁剪，导致 bottle/tile/screw 的样本数与划分**与文献不可比**，"≥2 个百分点"的判据随之失效。
+   **本周决定：暂不采用镜像**（用户 2026-10-10 明确"暂时不做"）。
+
+   **排期影响**：Phase 2 的复现、按划分列图像与标签、PatchCore 最小示例、AnomalyDINO 冒烟**全部顺延**；
+   **MVTec AD 2 带私有测试服务器、不存在可用镜像，必须走官方渠道**。关键路径目前就卡在这一步。
 2. **`git clone` 在本机阻塞**（`ls-remote` 正常，pack 传输 5 分钟无输出；已试 5 种参数组合）。已改用 ZIP 快照 + commit SHA + 树指纹并写入方法学。需要：认可该方式或提供可用代理。
-3. **`gh` CLI 未安装**，我无法建仓/推送（你说已接入 GitHub CAPOOCATXP）。需要：是否安装 gh，或给我远程仓库地址。
+3. ~~`gh` CLI 未安装~~ **已解决**：改用 SSH 专用密钥 `~/.ssh/id_ed25519_github` 直接推送，`main` 分支已上传到 `github.com/CAPOOCATXP/research01`。`gh` 仍然缺失，但本阶段不需要它。
 
 ## 4. Next（Week 2 前三件事）
 
