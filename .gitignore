@@ -18,3 +18,4 @@ _checks.json
 # 论文 PDF 本体不入库（版权 + 体积），只提交来源清单
 literature/pdf/
 literature/_pagecheck/
+literature/txt/
