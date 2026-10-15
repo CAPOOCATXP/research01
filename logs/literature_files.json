@@ -1,0 +1,74 @@
+[
+    {
+        "file":  "R1_patchcore_CVPR2022.pdf",
+        "bytes":  5833086,
+        "sha256":  "F2850CB48018AAAB6A5D1F6A73BD9AF45B75F8DE65F9686D53FB1652D945E2FD",
+        "pages":  11,
+        "pdf_version":  "%PDF-1.5",
+        "title_meta":  "Towards Total Recall in Industrial Anomaly Detection"
+    },
+    {
+        "file":  "R10_elkin_kurlin_compressed_cover_tree_ICML2023.pdf",
+        "bytes":  629680,
+        "sha256":  "71AF93494AB87A446D41A563E6391E5D34A4AA015CC89DBBBFA707CBD2857C38",
+        "pages":  45,
+        "pdf_version":  "%PDF-1.5",
+        "title_meta":  ""
+    },
+    {
+        "file":  "R11_fastref_CVPR2026.pdf",
+        "bytes":  2912215,
+        "sha256":  "FE8236E81B752223DA635DA61AEB16B44E1A5E160174F6FEE2D10597A5DDA394",
+        "pages":  10,
+        "pdf_version":  "%PDF-1.6",
+        "title_meta":  "FastRef: Fast Prototype Refinement for Few-shot Industrial Anomaly Detection"
+    },
+    {
+        "file":  "R2_anomalydino_WACV2025.pdf",
+        "bytes":  3114446,
+        "sha256":  "FF46A3CFA5CDC3BB684AC37D72FE546F3C6EDD7B02F3DCFE12DE30A5B7D89977",
+        "pages":  11,
+        "pdf_version":  "%PDF-1.6",
+        "title_meta":  "AnomalyDINO: Boosting Patch-Based Few-Shot Anomaly Detection with DINOv2"
+    },
+    {
+        "file":  "R3_efficientad_WACV2024.pdf",
+        "bytes":  2631537,
+        "sha256":  "1C80E6623764FC00327E60ABCF2071FFDA56D62BA3F9D4D56632E10B9B171B89",
+        "pages":  11,
+        "pdf_version":  "%PDF-1.6",
+        "title_meta":  "EfficientAD: Accurate Visual Anomaly Detection at Millisecond-Level Latencies"
+    },
+    {
+        "file":  "R4_mvtec_ad2_IJCV2026.pdf",
+        "bytes":  6623666,
+        "sha256":  "0C24A00A4F45BD6FC2E2FC21C5A81E59270EE97AE05E40C82A8423D7C4C0544B",
+        "pages":  32,
+        "pdf_version":  "%PDF-1.4",
+        "title_meta":  "Crossmarkblackandwhite_10.eps"
+    },
+    {
+        "file":  "R6_sparc_arXiv2608.18585.pdf",
+        "bytes":  15310193,
+        "sha256":  "FB4D25ABDD86C107BCC194235AC8E3863C336808E22F5B592F5774D503BD6477",
+        "pages":  0,
+        "pdf_version":  "%PDF-1.7",
+        "title_meta":  "SPARC: Subspace Position-Aware Robust Few-Shot Calibration for Distribution-Shifted Industrial Anomaly Detection"
+    },
+    {
+        "file":  "R7_cover_trees_ICML2006.pdf",
+        "bytes":  158201,
+        "sha256":  "BE41F89B83974B901552F0455253F58352E14B8F15BC2CF5156EC860390C266C",
+        "pages":  13,
+        "pdf_version":  "%PDF-1.4",
+        "title_meta":  "icalp_1.dvi"
+    },
+    {
+        "file":  "R8_calibration_preserving_pruning_arXiv2608.23744.pdf",
+        "bytes":  380541,
+        "sha256":  "E4786E9B1E185F88761CFAAFEDBD4CD238B8A9EC41419B4C0738BA71ACDD006D",
+        "pages":  0,
+        "pdf_version":  "%PDF-1.7",
+        "title_meta":  "Calibration-Preserving Pruning: Compression as a Reliability Contract"
+    }
+]
