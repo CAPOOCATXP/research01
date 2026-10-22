@@ -1,0 +1,312 @@
+{
+  "kind": "mechanism_simulation",
+  "disclaimer": "MVTec AD 未获批时的模拟实验；不能作为论文 Table 2；仅验证方法与实验设计",
+  "seed": 0,
+  "D_nominal": 384,
+  "D_eff": 24,
+  "N": 20000,
+  "patches_per_image": 64,
+  "ratios": [
+    0.01,
+    0.05,
+    0.1,
+    0.25
+  ],
+  "nominal_far": 0.05,
+  "categories": [
+    {
+      "category": "compact_tight",
+      "sigma": 0.55,
+      "d0": 2.1838905811309814,
+      "N": 20000,
+      "t": 3.1305198669433594,
+      "shift_abs": [
+        5.459726452827454,
+        13.103343486785889
+      ],
+      "fullbank": {
+        "far_normal": 0.075,
+        "recall_anomalous": 1.0,
+        "mean_score_normal": 2.875462055206299,
+        "mean_score_anomalous": 8.511680603027344,
+        "t_over_d0": 1.4334600341204562
+      },
+      "compression": {
+        "200": {
+          "k": 200,
+          "ratio": 0.01,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4625,
+          "extra_alarms": 0.4625,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 4.37822151184082,
+            "far_normal": 0.05,
+            "recall": 1.0,
+            "disagree": 0.037500000000000006,
+            "extra_alarms": 0.0125,
+            "missed_alarms": 0.025
+          }
+        },
+        "1000": {
+          "k": 1000,
+          "ratio": 0.05,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4625,
+          "extra_alarms": 0.4625,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 3.830610752105713,
+            "far_normal": 0.06,
+            "recall": 1.0,
+            "disagree": 0.0375,
+            "extra_alarms": 0.015,
+            "missed_alarms": 0.0225
+          }
+        },
+        "2000": {
+          "k": 2000,
+          "ratio": 0.1,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4625,
+          "extra_alarms": 0.4625,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 3.6165263652801514,
+            "far_normal": 0.105,
+            "recall": 1.0,
+            "disagree": 0.045,
+            "extra_alarms": 0.03,
+            "missed_alarms": 0.015
+          },
+          "screening": {
+            "escalate_rate": 0.5575,
+            "resolved": 0.4425,
+            "resolved_mismatch": 0,
+            "radius_mean": 2.8515331745147705,
+            "radius_p95": 3.2195870876312256,
+            "width_mean": 3.1049768924713135,
+            "cell_count": 2000,
+            "note": "逐 cell 半径在内在子空间内计算；未计入元数据与编码器内存"
+          }
+        },
+        "5000": {
+          "k": 5000,
+          "ratio": 0.25,
+          "far_normal_fixed_t": 0.59,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.2575,
+          "extra_alarms": 0.2575,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 3.4254567623138428,
+            "far_normal": 0.075,
+            "recall": 1.0,
+            "disagree": 0.02,
+            "extra_alarms": 0.01,
+            "missed_alarms": 0.01
+          }
+        }
+      }
+    },
+    {
+      "category": "medium",
+      "sigma": 0.85,
+      "d0": 3.367159128189087,
+      "N": 20000,
+      "t": 4.8038811683654785,
+      "shift_abs": [
+        5.38745460510254,
+        13.468636512756348
+      ],
+      "fullbank": {
+        "far_normal": 0.09,
+        "recall_anomalous": 0.925,
+        "mean_score_normal": 4.443421363830566,
+        "mean_score_anomalous": 8.135080337524414,
+        "t_over_d0": 1.426686706947849
+      },
+      "compression": {
+        "200": {
+          "k": 200,
+          "ratio": 0.01,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4925,
+          "extra_alarms": 0.4925,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 6.754515647888184,
+            "far_normal": 0.075,
+            "recall": 0.87,
+            "disagree": 0.095,
+            "extra_alarms": 0.03,
+            "missed_alarms": 0.065
+          }
+        },
+        "1000": {
+          "k": 1000,
+          "ratio": 0.05,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4925,
+          "extra_alarms": 0.4925,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 5.900808811187744,
+            "far_normal": 0.08,
+            "recall": 0.91,
+            "disagree": 0.0875,
+            "extra_alarms": 0.0375,
+            "missed_alarms": 0.05
+          }
+        },
+        "2000": {
+          "k": 2000,
+          "ratio": 0.1,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.4925,
+          "extra_alarms": 0.4925,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 5.67341423034668,
+            "far_normal": 0.08,
+            "recall": 0.885,
+            "disagree": 0.08499999999999999,
+            "extra_alarms": 0.03,
+            "missed_alarms": 0.055
+          },
+          "screening": {
+            "escalate_rate": 0.81,
+            "resolved": 0.18999999999999995,
+            "resolved_mismatch": 0,
+            "radius_mean": 4.435524940490723,
+            "radius_p95": 4.966505527496338,
+            "width_mean": 4.785896301269531,
+            "cell_count": 2000,
+            "note": "逐 cell 半径在内在子空间内计算；未计入元数据与编码器内存"
+          }
+        },
+        "5000": {
+          "k": 5000,
+          "ratio": 0.25,
+          "far_normal_fixed_t": 0.765,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.375,
+          "extra_alarms": 0.375,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 5.218992710113525,
+            "far_normal": 0.07,
+            "recall": 0.92,
+            "disagree": 0.07250000000000001,
+            "extra_alarms": 0.03,
+            "missed_alarms": 0.0425
+          }
+        }
+      }
+    },
+    {
+      "category": "broad_hard",
+      "sigma": 1.2,
+      "d0": 4.758469581604004,
+      "N": 20000,
+      "t": 6.7037224769592285,
+      "shift_abs": [
+        4.996393060684205,
+        10.468633079528809
+      ],
+      "fullbank": {
+        "far_normal": 0.1,
+        "recall_anomalous": 0.465,
+        "mean_score_normal": 6.244302749633789,
+        "mean_score_anomalous": 6.772330284118652,
+        "t_over_d0": 1.4087980099474569
+      },
+      "compression": {
+        "200": {
+          "k": 200,
+          "ratio": 0.01,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.7175,
+          "extra_alarms": 0.7175,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 9.521865844726562,
+            "far_normal": 0.075,
+            "recall": 0.24,
+            "disagree": 0.19,
+            "extra_alarms": 0.0325,
+            "missed_alarms": 0.1575
+          }
+        },
+        "1000": {
+          "k": 1000,
+          "ratio": 0.05,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.7175,
+          "extra_alarms": 0.7175,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 8.275750160217285,
+            "far_normal": 0.12,
+            "recall": 0.34,
+            "disagree": 0.1925,
+            "extra_alarms": 0.07,
+            "missed_alarms": 0.1225
+          }
+        },
+        "2000": {
+          "k": 2000,
+          "ratio": 0.1,
+          "far_normal_fixed_t": 1.0,
+          "recall_fixed_t": 1.0,
+          "disagree": 0.7175,
+          "extra_alarms": 0.7175,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 7.991514682769775,
+            "far_normal": 0.085,
+            "recall": 0.305,
+            "disagree": 0.1525,
+            "extra_alarms": 0.0325,
+            "missed_alarms": 0.12
+          },
+          "screening": {
+            "escalate_rate": 1.0,
+            "resolved": 0.0,
+            "resolved_mismatch": 0,
+            "radius_mean": 6.231960773468018,
+            "radius_p95": 6.989551544189453,
+            "width_mean": 6.758272647857666,
+            "cell_count": 2000,
+            "note": "逐 cell 半径在内在子空间内计算；未计入元数据与编码器内存"
+          }
+        },
+        "5000": {
+          "k": 5000,
+          "ratio": 0.25,
+          "far_normal_fixed_t": 0.755,
+          "recall_fixed_t": 0.91,
+          "disagree": 0.55,
+          "extra_alarms": 0.55,
+          "missed_alarms": 0.0,
+          "recalibrated": {
+            "t_prime": 7.343533515930176,
+            "far_normal": 0.085,
+            "recall": 0.41,
+            "disagree": 0.12,
+            "extra_alarms": 0.0425,
+            "missed_alarms": 0.0775
+          }
+        }
+      }
+    }
+  ]
+}
