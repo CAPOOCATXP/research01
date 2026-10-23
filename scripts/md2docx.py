@@ -40,6 +40,8 @@ TABLE_SPECS = {
     "查询": dict(widths=[1.7, 2.5, 2.2, 2.1, 2.1, 2.7, 3.8, 3.6], landscape=True, size=8.5),
     "文件": dict(widths=[4.9, 2.3, 4.7, 5.5], landscape=False, size=8.0),
     "目录": dict(widths=[3.0, 6.6, 8.0], landscape=False, size=8.5),
+    "周": dict(widths=[0.9, 3.0, 2.6, 2.9, 4.2], landscape=False, size=8.0),
+    "节": dict(widths=[1.9, 5.6, 5.1], landscape=False, size=8.5),
 }
 
 
