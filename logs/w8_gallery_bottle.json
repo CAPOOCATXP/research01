@@ -1,0 +1,184 @@
+{
+  "category": "bottle",
+  "threshold": 1.7792104482650757,
+  "k": 1254,
+  "shot": 16,
+  "ratio": 0.1,
+  "end_to_end": {
+    "normal": {
+      "local": 74,
+      "escalated": 9,
+      "unresolved": 0,
+      "normal_decisions": 20,
+      "alarm_decisions": 63
+    },
+    "offline": {
+      "local": 74,
+      "escalated": 0,
+      "unresolved": 9,
+      "normal_decisions": 20,
+      "alarm_decisions": 54,
+      "never_normal_without_resolver": true
+    },
+    "version_mismatch": {
+      "local": 74,
+      "escalated": 0,
+      "unresolved": 9,
+      "normal_decisions": 20,
+      "alarm_decisions": 54,
+      "never_normal_without_resolver": true
+    }
+  },
+  "counts": {
+    "escalated": 9,
+    "alarm_local": 54,
+    "normal_local": 20
+  },
+  "picks": [
+    {
+      "row": 249,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\broken_small\\000.png",
+      "kind": "escalated",
+      "L": 1.6658391952514648,
+      "U": 2.741288661956787,
+      "s": 2.7370126247406006,
+      "margin": 0.9578021764755249,
+      "mask_area": 7166,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 264,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\broken_small\\015.png",
+      "kind": "escalated",
+      "L": 1.6588574647903442,
+      "U": 2.717940330505371,
+      "s": 2.717942476272583,
+      "margin": 0.9387320280075073,
+      "mask_area": 13480,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 272,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\contamination\\001.png",
+      "kind": "escalated",
+      "L": 1.4431766271591187,
+      "U": 2.426569700241089,
+      "s": 2.382387399673462,
+      "margin": 0.6031769514083862,
+      "mask_area": 58120,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 287,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\contamination\\016.png",
+      "kind": "escalated",
+      "L": 1.2448976039886475,
+      "U": 2.2446887493133545,
+      "s": 2.1206421852111816,
+      "margin": 0.34143173694610596,
+      "mask_area": 122515,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 217,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\good\\008.png",
+      "kind": "normal_local",
+      "L": 0.7519276738166809,
+      "U": 1.74043607711792,
+      "s": 1.6486157178878784,
+      "margin": 0.13059473037719727,
+      "mask_area": 0,
+      "is_defect": false,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 215,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\good\\006.png",
+      "kind": "normal_local",
+      "L": 0.6839922070503235,
+      "U": 1.6773545742034912,
+      "s": 1.6396574974060059,
+      "margin": 0.13955295085906982,
+      "mask_area": 0,
+      "is_defect": false,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 210,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\good\\001.png",
+      "kind": "normal_local",
+      "L": 0.7171475887298584,
+      "U": 1.706749677658081,
+      "s": 1.6328171491622925,
+      "margin": 0.1463932991027832,
+      "mask_area": 0,
+      "is_defect": false,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 228,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\good\\019.png",
+      "kind": "normal_local",
+      "L": 0.6635879874229431,
+      "U": 1.6732935905456543,
+      "s": 1.5971249341964722,
+      "margin": 0.18208551406860352,
+      "mask_area": 0,
+      "is_defect": false,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 289,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\contamination\\018.png",
+      "kind": "alarm_local",
+      "L": 2.6091017723083496,
+      "U": 3.673283576965332,
+      "s": 3.5904526710510254,
+      "margin": 1.8112422227859497,
+      "mask_area": 4663,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 285,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\contamination\\014.png",
+      "kind": "alarm_local",
+      "L": 1.962390661239624,
+      "U": 2.9925642013549805,
+      "s": 2.859776496887207,
+      "margin": 1.0805660486221313,
+      "mask_area": 5429,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 249,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\broken_small\\000.png",
+      "kind": "escalated",
+      "L": 1.6658391952514648,
+      "U": 2.741288661956787,
+      "s": 2.7370126247406006,
+      "margin": 0.9578021764755249,
+      "mask_area": 7166,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 250,
+      "path": "F:\\research\\data\\mvtec_ad\\bottle\\test\\broken_small\\001.png",
+      "kind": "alarm_local",
+      "L": 2.556553363800049,
+      "U": 3.480372190475464,
+      "s": 3.4754397869110107,
+      "margin": 1.696229338645935,
+      "mask_area": 11966,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    }
+  ],
+  "smallest_defect_area": 4663
+}

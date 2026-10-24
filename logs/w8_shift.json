@@ -1,0 +1,213 @@
+{
+  "config": {
+    "categories": [
+      "bottle",
+      "tile",
+      "screw"
+    ],
+    "shot": 16,
+    "ratio": 0.1,
+    "batch": 8
+  },
+  "results": [
+    {
+      "category": "bottle",
+      "transform": "identity",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 1.0,
+      "escalated": 9,
+      "escalate_rate": 0.10843373493975904,
+      "flips_vs_identity": 0
+    },
+    {
+      "category": "bottle",
+      "transform": "bright+30%",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.05,
+      "recall": 1.0,
+      "escalated": 9,
+      "escalate_rate": 0.10843373493975904,
+      "flips_vs_identity": 1
+    },
+    {
+      "category": "bottle",
+      "transform": "bright-30%",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 0.9523809523809523,
+      "escalated": 12,
+      "escalate_rate": 0.14457831325301204,
+      "flips_vs_identity": 3
+    },
+    {
+      "category": "bottle",
+      "transform": "contrast+30%",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.05,
+      "recall": 1.0,
+      "escalated": 9,
+      "escalate_rate": 0.10843373493975904,
+      "flips_vs_identity": 1
+    },
+    {
+      "category": "bottle",
+      "transform": "gamma0.7",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.05,
+      "recall": 1.0,
+      "escalated": 10,
+      "escalate_rate": 0.12048192771084337,
+      "flips_vs_identity": 1
+    },
+    {
+      "category": "bottle",
+      "transform": "blur r=1.2",
+      "t": 1.7792104482650757,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 1.0,
+      "escalated": 9,
+      "escalate_rate": 0.10843373493975904,
+      "flips_vs_identity": 0
+    },
+    {
+      "category": "tile",
+      "transform": "identity",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 0.8452380952380952,
+      "escalated": 72,
+      "escalate_rate": 0.6153846153846154,
+      "flips_vs_identity": 0
+    },
+    {
+      "category": "tile",
+      "transform": "bright+30%",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.030303030303030304,
+      "recall": 0.8333333333333334,
+      "escalated": 75,
+      "escalate_rate": 0.6410256410256411,
+      "flips_vs_identity": 10
+    },
+    {
+      "category": "tile",
+      "transform": "bright-30%",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 0.8095238095238095,
+      "escalated": 66,
+      "escalate_rate": 0.5641025641025641,
+      "flips_vs_identity": 3
+    },
+    {
+      "category": "tile",
+      "transform": "contrast+30%",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.030303030303030304,
+      "recall": 0.8571428571428571,
+      "escalated": 77,
+      "escalate_rate": 0.6581196581196581,
+      "flips_vs_identity": 4
+    },
+    {
+      "category": "tile",
+      "transform": "gamma0.7",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 0.7857142857142857,
+      "escalated": 65,
+      "escalate_rate": 0.5555555555555556,
+      "flips_vs_identity": 5
+    },
+    {
+      "category": "tile",
+      "transform": "blur r=1.2",
+      "t": 2.226771831512451,
+      "k": 1254,
+      "far": 0.0,
+      "recall": 0.8095238095238095,
+      "escalated": 70,
+      "escalate_rate": 0.5982905982905983,
+      "flips_vs_identity": 3
+    },
+    {
+      "category": "screw",
+      "transform": "identity",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.0975609756097561,
+      "recall": 0.11764705882352941,
+      "escalated": 25,
+      "escalate_rate": 0.15625,
+      "flips_vs_identity": 0
+    },
+    {
+      "category": "screw",
+      "transform": "bright+30%",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.12195121951219512,
+      "recall": 0.15966386554621848,
+      "escalated": 29,
+      "escalate_rate": 0.18125,
+      "flips_vs_identity": 6
+    },
+    {
+      "category": "screw",
+      "transform": "bright-30%",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.0975609756097561,
+      "recall": 0.10084033613445378,
+      "escalated": 19,
+      "escalate_rate": 0.11875,
+      "flips_vs_identity": 2
+    },
+    {
+      "category": "screw",
+      "transform": "contrast+30%",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.12195121951219512,
+      "recall": 0.17647058823529413,
+      "escalated": 29,
+      "escalate_rate": 0.18125,
+      "flips_vs_identity": 8
+    },
+    {
+      "category": "screw",
+      "transform": "gamma0.7",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.0975609756097561,
+      "recall": 0.11764705882352941,
+      "escalated": 22,
+      "escalate_rate": 0.1375,
+      "flips_vs_identity": 0
+    },
+    {
+      "category": "screw",
+      "transform": "blur r=1.2",
+      "t": 3.0322351455688477,
+      "k": 1254,
+      "far": 0.12195121951219512,
+      "recall": 0.11764705882352941,
+      "escalated": 24,
+      "escalate_rate": 0.15,
+      "flips_vs_identity": 1
+    }
+  ],
+  "note": "受控合成扰动，非真实光照变化"
+}

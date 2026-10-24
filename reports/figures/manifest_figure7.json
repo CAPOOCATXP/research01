@@ -1,0 +1,15 @@
+{
+  "generated_by": "scripts/make_figures_phase7.py",
+  "figures": [
+    {
+      "figure": "figure_7_shots_seeds.png",
+      "sha256": "890d07829cd029d20b17f922058320af3a5088814556e84f8955999d34de14a3",
+      "bytes": 101062
+    },
+    {
+      "figure": "figure_7_shots_seeds.pdf",
+      "sha256": "64c99e99c714e4c5657f669928ccafd56087bbfc5454a68a2300760a12c1d6b1",
+      "bytes": 47489
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "category": "tile",
+  "threshold": 2.226771831512451,
+  "k": 1254,
+  "shot": 16,
+  "ratio": 0.1,
+  "end_to_end": {
+    "normal": {
+      "local": 45,
+      "escalated": 72,
+      "unresolved": 0,
+      "normal_decisions": 46,
+      "alarm_decisions": 71
+    },
+    "offline": {
+      "local": 45,
+      "escalated": 0,
+      "unresolved": 72,
+      "normal_decisions": 42,
+      "alarm_decisions": 3,
+      "never_normal_without_resolver": true
+    },
+    "version_mismatch": {
+      "local": 45,
+      "escalated": 0,
+      "unresolved": 72,
+      "normal_decisions": 42,
+      "alarm_decisions": 3,
+      "never_normal_without_resolver": true
+    }
+  },
+  "counts": {
+    "escalated": 72,
+    "alarm_local": 3,
+    "normal_local": 42
+  },
+  "picks": [
+    {
+      "row": 297,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\glue_strip\\017.png",
+      "kind": "escalated",
+      "L": 2.1769890785217285,
+      "U": 3.568516731262207,
+      "s": 3.5268125534057617,
+      "margin": 1.3000407218933105,
+      "mask_area": 110862,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 275,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\012.png",
+      "kind": "escalated",
+      "L": 2.1070141792297363,
+      "U": 3.530066967010498,
+      "s": 3.4791104793548584,
+      "margin": 1.2523386478424072,
+      "mask_area": 20740,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 284,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\glue_strip\\004.png",
+      "kind": "escalated",
+      "L": 2.1653406620025635,
+      "U": 3.513516426086426,
+      "s": 3.475771188735962,
+      "margin": 1.2489993572235107,
+      "mask_area": 130408,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 264,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\001.png",
+      "kind": "escalated",
+      "L": 2.140950918197632,
+      "U": 3.4780638217926025,
+      "s": 3.4705746173858643,
+      "margin": 1.243802785873413,
+      "mask_area": 11881,
+      "is_defect": true,
+      "why": "必须升级（区间横跨阈值）"
+    },
+    {
+      "row": 308,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\gray_stroke\\010.png",
+      "kind": "normal_local",
+      "L": 0.8650461435317993,
+      "U": 2.221877336502075,
+      "s": 2.1567957401275635,
+      "margin": 0.0699760913848877,
+      "mask_area": 43771,
+      "is_defect": true,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 303,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\gray_stroke\\005.png",
+      "kind": "normal_local",
+      "L": 0.8512570858001709,
+      "U": 2.2256925106048584,
+      "s": 2.119777202606201,
+      "margin": 0.10699462890625,
+      "mask_area": 30099,
+      "is_defect": true,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 300,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\gray_stroke\\002.png",
+      "kind": "normal_local",
+      "L": 0.8908478021621704,
+      "U": 2.1667261123657227,
+      "s": 2.1139960289001465,
+      "margin": 0.11277580261230469,
+      "mask_area": 17245,
+      "is_defect": true,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 330,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\oil\\016.png",
+      "kind": "normal_local",
+      "L": 0.7963293790817261,
+      "U": 2.1463897228240967,
+      "s": 2.089742422103882,
+      "margin": 0.13702940940856934,
+      "mask_area": 153743,
+      "is_defect": true,
+      "why": "本地裁决但最贴近阈值"
+    },
+    {
+      "row": 278,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\015.png",
+      "kind": "escalated",
+      "L": 1.395256757736206,
+      "U": 2.7591042518615723,
+      "s": 2.737334728240967,
+      "margin": 0.5105628967285156,
+      "mask_area": 5942,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 267,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\004.png",
+      "kind": "escalated",
+      "L": 2.0625038146972656,
+      "U": 3.4764513969421387,
+      "s": 3.437896728515625,
+      "margin": 1.2111248970031738,
+      "mask_area": 6986,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 274,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\011.png",
+      "kind": "escalated",
+      "L": 1.7885264158248901,
+      "U": 3.1894073486328125,
+      "s": 3.1464085578918457,
+      "margin": 0.9196367263793945,
+      "mask_area": 9042,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    },
+    {
+      "row": 268,
+      "path": "F:\\research\\data\\mvtec_ad\\tile\\test\\crack\\005.png",
+      "kind": "escalated",
+      "L": 1.753914713859558,
+      "U": 3.067126750946045,
+      "s": 3.0087924003601074,
+      "margin": 0.7820205688476562,
+      "mask_area": 10629,
+      "is_defect": true,
+      "why": "真值面积最小的缺陷"
+    }
+  ],
+  "smallest_defect_area": 5942
+}
