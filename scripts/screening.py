@@ -317,6 +317,51 @@ def selftest() -> int:
 
 
 # --------------------------------------------------------------------------- #
+try:
+    import torch
+    _DEV = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+except Exception:
+    torch = None
+    _DEV = None
+
+
+def batch_image_scores(feats: np.ndarray, rows: np.ndarray, bank: np.ndarray,
+                       chunk: int = 8192) -> np.ndarray:
+    """一次算完多张图的图像分数（max_patch 最近邻距离）。
+
+    逐图调用 O(图数) 次矩阵乘；这里把 (图, patch) 摊平成一次分块矩阵乘，
+    GPU 上快两个数量级，CPU 上也快很多。
+    """
+    sub = feats[rows]                                  # (N, P, C)
+    n, p, c = sub.shape
+    if torch is not None:
+        b = torch.from_numpy(np.ascontiguousarray(bank, dtype=np.float32)).to(_DEV)
+        b2 = (b * b).sum(dim=1)
+        out = np.empty(n, dtype=np.float32)
+        per = 16                                   # 每次 16 张图，显存可控
+        for s in range(0, n, per):
+            blk = np.ascontiguousarray(sub[s:s + per], dtype=np.float32)
+            m = blk.shape[0]
+            q = torch.from_numpy(blk).to(_DEV).reshape(-1, c)
+            d2 = (q * q).sum(dim=1, keepdim=True) + b2[None, :] - 2.0 * q @ b.T
+            dmin = d2.clamp_min_(0).sqrt().min(dim=1).values.view(m, p)
+            out[s:s + m] = dmin.max(dim=1).values.cpu().numpy()
+        return out
+    # CPU 退化路径
+    out = np.empty(n, dtype=np.float32)
+    b = bank.astype(np.float32)
+    b2 = (b * b).sum(axis=1)
+    for k in range(n):
+        q = sub[k].astype(np.float32)
+        best = np.inf
+        for i in range(0, p, 1024):
+            qq = q[i:i + 1024]
+            d2 = (qq ** 2).sum(axis=1, keepdims=True) + b2[None, :] - 2.0 * qq @ b.T
+            best = min(best, float(np.sqrt(np.maximum(d2, 0)).min()))
+        out[k] = best
+    return out
+
+
 def load_cache(cat: str):
     files = sorted(CACHE.glob(f"{cat}_*.npz"))
     if not files:
@@ -326,7 +371,7 @@ def load_cache(cat: str):
     return z["feats"], z["split"], z["roles"], meta, files[0].name
 
 
-def evaluate(cat, ratio, levels, radius_mode, shot, seed):
+def evaluate(cat, ratio, levels, radius_mode, shot, seed, k_override=0):
     feats, split, roles, meta, fname = load_cache(cat)
     n_patch = meta["patches_per_image"]
     ref_rows = np.where(roles == "reference_fit")[0]
@@ -341,33 +386,33 @@ def evaluate(cat, ratio, levels, radius_mode, shot, seed):
     if shot > len(ref_rows):
         take = bank_rows
     bank = feats[np.sort(take)].reshape(-1, feats.shape[2])
-    k = max(2, int(round(ratio * len(bank))))
+    k = int(k_override) if k_override else max(2, int(round(ratio * len(bank))))
     idx = ScreenIndex(bank, k=k, levels=levels, radius_mode=radius_mode, seed=seed)
     v = BankVersion(meta["encoder"], f"resize{meta['resize']}/crop{meta['imagesize']}",
                     bank_sha256(bank), "max_patch", 0.0, k, ratio, levels)
     resolver = Resolver(bank, v)
 
-    # 阈值：校准图的图像分数 95 分位
-    cal_scores = np.array([resolver.score(feats[r]) for r in cal_rows])
+    # 阈值：校准图的图像分数 95 分位（批量计算，不再逐图）
+    cal_scores = batch_image_scores(feats, cal_rows, bank)
     t = float(np.percentile(cal_scores, 95))
     v.threshold = t
 
     # 评估：屏幕 + 升级
+    all_rows = np.concatenate([good_rows, bad_rows])
+    truth_scores = batch_image_scores(feats, all_rows, bank)
     rows = []
-    for kind, rr in (("good", good_rows), ("defect", bad_rows)):
-        for r in rr:
-            f = feats[r]
-            lo, hi = idx.image_bounds(f)
-            if hi <= t:
-                dec, why = "normal", "local"
-            elif lo > t:
-                dec, why = "alarm", "local"
-            else:
-                dec, why = resolver.resolve(f, t)
-                why = "escalated" if dec is not None else why
-            truth = resolver.score(f) > t
-            rows.append(dict(kind=kind, dec=dec, why=why, truth=bool(truth),
-                             L=lo, U=hi))
+    for i, r in enumerate(all_rows):
+        kind = "good" if i < len(good_rows) else "defect"
+        f = feats[r]
+        lo, hi = idx.image_bounds(f)
+        if hi <= t:
+            dec, why = "normal", "local"
+        elif lo > t:
+            dec, why = "alarm", "local"
+        else:
+            dec, why = ("alarm" if truth_scores[i] > t else "normal"), "escalated"
+        rows.append(dict(kind=kind, dec=dec, why=why, truth=bool(truth_scores[i] > t),
+                         L=lo, U=hi))
     resolved = [x for x in rows if x["why"] == "local"]
     esc = [x for x in rows if x["why"] == "escalated"]
     unresolved = [x for x in rows if x["dec"] is None]
@@ -391,6 +436,7 @@ def main():
     ap.add_argument("--ratio", type=float, default=0.10)
     ap.add_argument("--levels", type=int, nargs="+", default=[1])
     ap.add_argument("--radius", nargs="+", default=["cell"], choices=["cell", "global"])
+    ap.add_argument("--k", type=int, default=0, help="强制中心数（0=按 ratio 算）")
     ap.add_argument("--shot", type=int, default=16)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default=str(OUT / "w4_screening.json"))
@@ -407,7 +453,7 @@ def main():
     for cat in cats:
         for lv in args.levels:
             for rm in args.radius:
-                r = evaluate(cat, args.ratio, lv, rm, args.shot, args.seed)
+                r = evaluate(cat, args.ratio, lv, rm, args.shot, args.seed, args.k)
                 results.append(r)
                 print(f"{cat:<8}{lv:>3}{rm:>8}{r['k']:>7}{r['local_rate']*100:>7.1f}%"
                       f"{r['escalate_rate']*100:>7.1f}%{r['local_mismatch']:>6}"
