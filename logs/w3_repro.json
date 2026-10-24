@@ -1,0 +1,79 @@
+{
+  "config": {
+    "categories": [
+      "bottle",
+      "tile",
+      "screw"
+    ],
+    "ratios": [
+      0.01,
+      0.05,
+      0.1,
+      0.25
+    ],
+    "resize": 256,
+    "imagesize": 224,
+    "batch": 8,
+    "max_bank": 100000,
+    "limit_images": 0,
+    "device": "cuda",
+    "ref_mode": "all",
+    "auroc_only": true
+  },
+  "results": [
+    {
+      "category": "bottle",
+      "t": 1.1725825071334839,
+      "n_bank": 100000,
+      "dim": 1536,
+      "n_ref": 209,
+      "n_cal": 169,
+      "n_test_good": 20,
+      "n_test_defect": 63,
+      "fullbank": {
+        "far_normal": 0.75,
+        "recall": 1.0,
+        "auroc": 1.0,
+        "sec": 26.893474999999853
+      },
+      "compression": {},
+      "screening": null
+    },
+    {
+      "category": "tile",
+      "t": 1.4588786363601685,
+      "n_bank": 100000,
+      "dim": 1536,
+      "n_ref": 230,
+      "n_cal": 190,
+      "n_test_good": 33,
+      "n_test_defect": 84,
+      "fullbank": {
+        "far_normal": 1.0,
+        "recall": 1.0,
+        "auroc": 0.9812409812409812,
+        "sec": 35.552747199999885
+      },
+      "compression": {},
+      "screening": null
+    },
+    {
+      "category": "screw",
+      "t": 1.6140782833099365,
+      "n_bank": 100000,
+      "dim": 1536,
+      "n_ref": 320,
+      "n_cal": 280,
+      "n_test_good": 41,
+      "n_test_defect": 119,
+      "fullbank": {
+        "far_normal": 0.36585365853658536,
+        "recall": 0.9495798319327731,
+        "auroc": 0.9329780692764911,
+        "sec": 43.86229430000003
+      },
+      "compression": {},
+      "screening": null
+    }
+  ]
+}

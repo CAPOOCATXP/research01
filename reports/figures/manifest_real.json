@@ -1,0 +1,25 @@
+{
+  "generated_by": "scripts/make_figures_real.py",
+  "figures": [
+    {
+      "figure": "figure_5_real_disagreement.pdf",
+      "sha256": "0532aa3a511950b9d8327dc1d06d9998e07005f4671dab0bc9c11ffd98d390e2",
+      "bytes": 45174
+    },
+    {
+      "figure": "figure_5_real_disagreement.png",
+      "sha256": "a294ea139fc943389a6c816d4034ccd69db601acf8f111a8fa525d8ef94c1db0",
+      "bytes": 69693
+    },
+    {
+      "figure": "figure_6_real_tradeoff.pdf",
+      "sha256": "7d51d63f6f1376d934ebf8c696cceb506d5ecc342677792840533ac9e65c1084",
+      "bytes": 39636
+    },
+    {
+      "figure": "figure_6_real_tradeoff.png",
+      "sha256": "ada87a7655567f76f517e090372679846d9e01dbabefaf45d73bb443c18ac153",
+      "bytes": 67765
+    }
+  ]
+}
