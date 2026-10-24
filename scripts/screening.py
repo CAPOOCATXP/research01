@@ -462,7 +462,8 @@ def main():
     ap.add_argument("--levels", type=int, nargs="+", default=[1])
     ap.add_argument("--radius", nargs="+", default=["cell"], choices=["cell", "global"])
     ap.add_argument("--k", type=int, default=0, help="强制中心数（0=按 ratio 算）")
-    ap.add_argument("--shot", type=int, default=16)
+    ap.add_argument("--shot", type=int, nargs="+", default=[16])
+    ap.add_argument("--seeds", type=int, nargs="+", default=None, help="多个随机种子（覆盖 --seed）")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default=str(OUT / "w4_screening.json"))
     args = ap.parse_args()
@@ -474,15 +475,18 @@ def main():
     results = []
     print(f"{'类别':<8}{'层':>3}{'半径':>8}{'k':>7}{'本地%':>8}{'升级%':>8}{'错判':>6}"
           f"{'字节(KB)':>10}")
-    print("-" * 62)
+    print("-" * 70)
+    seeds = args.seeds if args.seeds else [args.seed]
     for cat in cats:
         for lv in args.levels:
             for rm in args.radius:
-                r = evaluate(cat, args.ratio, lv, rm, args.shot, args.seed, args.k)
-                results.append(r)
-                print(f"{cat:<8}{lv:>3}{rm:>8}{r['k']:>7}{r['local_rate']*100:>7.1f}%"
-                      f"{r['escalate_rate']*100:>7.1f}%{r['local_mismatch']:>6}"
-                      f"{r['bytes']['total']/1024:>10.1f}")
+                for shot in args.shot:
+                    for sd in seeds:
+                        r = evaluate(cat, args.ratio, lv, rm, shot, sd, args.k)
+                        results.append(r)
+                        print(f"{cat:<8}{lv:>3}{rm:>9}{shot:>5}{sd:>4}{r['k']:>7}"
+                              f"{r['local_rate']*100:>7.1f}%{r['escalate_rate']*100:>7.1f}%"
+                              f"{r['local_mismatch']:>6}{r['bytes']['total']/1024:>9.1f}")
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps({"config": vars(args), "results": results},
                                          ensure_ascii=False, indent=2), encoding="utf-8")
