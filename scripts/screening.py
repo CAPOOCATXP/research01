@@ -71,10 +71,26 @@ def bank_sha256(bank: np.ndarray) -> str:
 # --------------------------------------------------------------------------- #
 # 核心：cell 划分与区间
 # --------------------------------------------------------------------------- #
-def greedy_coreset(bank: np.ndarray, k: int, seed: int = 0) -> np.ndarray:
-    rng = np.random.default_rng(seed)
+def greedy_coreset(bank: np.ndarray, k: int, seed: int = 0, use_gpu: bool = True) -> np.ndarray:
+    """贪心 k-中心。
+
+    GPU 路径只是把"算距离"搬上显卡，**选点顺序与 numpy 路径逐位相同**：
+    起点由 numpy 的同一种子决定，之后每步都是 argmax（并列取首个）。
+    因此两条路径的 coreset 完全一致，可在 selftest 里验证。
+    """
     n = len(bank)
-    first = int(rng.integers(0, n))
+    first = int(np.random.default_rng(seed).integers(0, n))
+    if use_gpu and torch is not None and _DEV is not None and str(_DEV).startswith("cuda"):
+        b = torch.from_numpy(np.ascontiguousarray(bank, dtype=np.float32)).to(_DEV)
+        chosen = [first]
+        dmin = (b - b[first]).norm(dim=1)
+        for _ in range(k - 1):
+            nxt = int(torch.argmax(dmin).item())
+            if nxt in chosen:
+                break
+            chosen.append(nxt)
+            dmin = torch.minimum(dmin, (b - b[nxt]).norm(dim=1))
+        return np.array(sorted(set(chosen)), dtype=np.int64)
     chosen = [first]
     dmin = np.linalg.norm(bank - bank[first], axis=1)
     for _ in range(k - 1):
@@ -305,6 +321,15 @@ def selftest() -> int:
     check("版本一致 → 正常解析", d1 in ("alarm", "normal") and why1 == "resolved")
     check("版本不符 → unresolved（不静默判正常）", d2 is None and why2.startswith("unresolved"))
     check("解析器离线 → unresolved", d3 is None and why3.startswith("unresolved"))
+
+    print("== 6b. 核心集：GPU 与 numpy 路径一致 ==")
+    try:
+        a_cpu = greedy_coreset(bank, 40, seed=3, use_gpu=False)
+        a_gpu = greedy_coreset(bank, 40, seed=3, use_gpu=True)
+        check("两条路径选出的索引完全相同", np.array_equal(a_cpu, a_gpu),
+              f"n={len(a_cpu)} vs {len(a_gpu)}")
+    except Exception as e:
+        check("核心集一致性", False, f"{type(e).__name__}: {e}")
 
     print("== 7. 确定性（两次构建逐位一致）==")
     a = ScreenIndex(bank, k=40, levels=2)

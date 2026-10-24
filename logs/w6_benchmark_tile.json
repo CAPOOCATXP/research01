@@ -1,0 +1,202 @@
+{
+  "category": "tile",
+  "shot": 16,
+  "bank_patches": 12544,
+  "dim": 1536,
+  "encoder_ms_per_image": 42.07,
+  "brute_ms_per_image": 8.38,
+  "balltree": {
+    "build_ms": 2378.6,
+    "query_ms_per_image": 17352.09,
+    "bytes": 160520192,
+    "max_abs_diff_vs_brute": 4.49281275005653e-06
+  },
+  "screen": [
+    {
+      "k": 32,
+      "leaves": 32,
+      "build_s": 1.33,
+      "screen_ms": 3.546,
+      "bytes": 196774,
+      "ratio_bytes_screen": 0.003
+    },
+    {
+      "k": 128,
+      "leaves": 128,
+      "build_s": 0.24,
+      "screen_ms": 4.482,
+      "bytes": 786983,
+      "ratio_bytes_screen": 0.01
+    },
+    {
+      "k": 1254,
+      "leaves": 1254,
+      "build_s": 1.69,
+      "screen_ms": 23.675,
+      "bytes": 7709632,
+      "ratio_bytes_screen": 0.1
+    }
+  ],
+  "breakeven": [
+    {
+      "k": 32,
+      "transfer_ms": 0,
+      "p_star": 0.5768364351369341,
+      "profitable": true
+    },
+    {
+      "k": 32,
+      "transfer_ms": 20,
+      "p_star": 0.1703235732098108,
+      "profitable": true
+    },
+    {
+      "k": 32,
+      "transfer_ms": 50,
+      "p_star": 0.08279822056264763,
+      "profitable": true
+    },
+    {
+      "k": 32,
+      "transfer_ms": 100,
+      "p_star": 0.044600019617533036,
+      "profitable": true
+    },
+    {
+      "k": 128,
+      "transfer_ms": 0,
+      "p_star": 0.46513843832028706,
+      "profitable": true
+    },
+    {
+      "k": 128,
+      "transfer_ms": 20,
+      "p_star": 0.1373422967519998,
+      "profitable": true
+    },
+    {
+      "k": 128,
+      "transfer_ms": 50,
+      "p_star": 0.06676526076073222,
+      "profitable": true
+    },
+    {
+      "k": 128,
+      "transfer_ms": 100,
+      "p_star": 0.03596371902032996,
+      "profitable": true
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 0,
+      "p_star": 0.0,
+      "profitable": false
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 20,
+      "p_star": 0.0,
+      "profitable": false
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 50,
+      "p_star": 0.0,
+      "profitable": false
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 100,
+      "p_star": 0.0,
+      "profitable": false
+    }
+  ],
+  "note": "传输时延为受控假设（仿真），本项目无真实边缘链路测量",
+  "breakeven_remote": [
+    {
+      "k": 32,
+      "transfer_ms": 0,
+      "t_screen_ms": 3.546,
+      "t_full_remote_ms": 8.38,
+      "p_star": 0.5768
+    },
+    {
+      "k": 32,
+      "transfer_ms": 20,
+      "t_screen_ms": 3.546,
+      "t_full_remote_ms": 28.38,
+      "p_star": 0.8751
+    },
+    {
+      "k": 32,
+      "transfer_ms": 50,
+      "t_screen_ms": 3.546,
+      "t_full_remote_ms": 58.38,
+      "p_star": 0.9393
+    },
+    {
+      "k": 32,
+      "transfer_ms": 100,
+      "t_screen_ms": 3.546,
+      "t_full_remote_ms": 108.38,
+      "p_star": 0.9673
+    },
+    {
+      "k": 128,
+      "transfer_ms": 0,
+      "t_screen_ms": 4.482,
+      "t_full_remote_ms": 8.38,
+      "p_star": 0.4652
+    },
+    {
+      "k": 128,
+      "transfer_ms": 20,
+      "t_screen_ms": 4.482,
+      "t_full_remote_ms": 28.38,
+      "p_star": 0.8421
+    },
+    {
+      "k": 128,
+      "transfer_ms": 50,
+      "t_screen_ms": 4.482,
+      "t_full_remote_ms": 58.38,
+      "p_star": 0.9232
+    },
+    {
+      "k": 128,
+      "transfer_ms": 100,
+      "t_screen_ms": 4.482,
+      "t_full_remote_ms": 108.38,
+      "p_star": 0.9586
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 0,
+      "t_screen_ms": 23.675,
+      "t_full_remote_ms": 8.38,
+      "p_star": 0.0
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 20,
+      "t_screen_ms": 23.675,
+      "t_full_remote_ms": 28.38,
+      "p_star": 0.1658
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 50,
+      "t_screen_ms": 23.675,
+      "t_full_remote_ms": 58.38,
+      "p_star": 0.5945
+    },
+    {
+      "k": 1254,
+      "transfer_ms": 100,
+      "t_screen_ms": 23.675,
+      "t_full_remote_ms": 108.38,
+      "p_star": 0.7816
+    }
+  ],
+  "note2": "p* = (T_transfer + T_resolver)/(T_transfer + T_resolver) 口径：筛查在 T_screen 内完成，(1-p) 本地裁决"
+}
