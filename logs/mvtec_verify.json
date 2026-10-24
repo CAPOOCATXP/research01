@@ -1,0 +1,306 @@
+{
+  "root": "F:\\research\\data\\mvtec_ad",
+  "archive": {
+    "path": "F:\\research\\data\\_download\\mvtec_anomaly_detection.tar.xz",
+    "bytes": 5264982680,
+    "sha256": "cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d",
+    "expected_sha256": "cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d",
+    "match": true
+  },
+  "categories": {
+    "bottle": {
+      "present": true,
+      "train_good": 209,
+      "test_total": 83,
+      "ground_truth": 63,
+      "expected": [
+        209,
+        83
+      ],
+      "match": true,
+      "defect_types": [
+        "broken_large",
+        "broken_small",
+        "contamination",
+        "good"
+      ]
+    },
+    "cable": {
+      "present": true,
+      "train_good": 224,
+      "test_total": 150,
+      "ground_truth": 92,
+      "expected": [
+        224,
+        150
+      ],
+      "match": true,
+      "defect_types": [
+        "bent_wire",
+        "cable_swap",
+        "combined",
+        "cut_inner_insulation",
+        "cut_outer_insulation",
+        "good",
+        "missing_cable",
+        "missing_wire",
+        "poke_insulation"
+      ]
+    },
+    "capsule": {
+      "present": true,
+      "train_good": 219,
+      "test_total": 132,
+      "ground_truth": 109,
+      "expected": [
+        219,
+        132
+      ],
+      "match": true,
+      "defect_types": [
+        "crack",
+        "faulty_imprint",
+        "good",
+        "poke",
+        "scratch",
+        "squeeze"
+      ]
+    },
+    "carpet": {
+      "present": true,
+      "train_good": 280,
+      "test_total": 117,
+      "ground_truth": 89,
+      "expected": [
+        280,
+        117
+      ],
+      "match": true,
+      "defect_types": [
+        "color",
+        "cut",
+        "good",
+        "hole",
+        "metal_contamination",
+        "thread"
+      ]
+    },
+    "grid": {
+      "present": true,
+      "train_good": 264,
+      "test_total": 78,
+      "ground_truth": 57,
+      "expected": [
+        264,
+        78
+      ],
+      "match": true,
+      "defect_types": [
+        "bent",
+        "broken",
+        "glue",
+        "good",
+        "metal_contamination",
+        "thread"
+      ]
+    },
+    "hazelnut": {
+      "present": true,
+      "train_good": 391,
+      "test_total": 110,
+      "ground_truth": 70,
+      "expected": [
+        391,
+        110
+      ],
+      "match": true,
+      "defect_types": [
+        "crack",
+        "cut",
+        "good",
+        "hole",
+        "print"
+      ]
+    },
+    "leather": {
+      "present": true,
+      "train_good": 245,
+      "test_total": 124,
+      "ground_truth": 92,
+      "expected": [
+        245,
+        124
+      ],
+      "match": true,
+      "defect_types": [
+        "color",
+        "cut",
+        "fold",
+        "glue",
+        "good",
+        "poke"
+      ]
+    },
+    "metal_nut": {
+      "present": true,
+      "train_good": 220,
+      "test_total": 115,
+      "ground_truth": 93,
+      "expected": [
+        220,
+        115
+      ],
+      "match": true,
+      "defect_types": [
+        "bent",
+        "color",
+        "flip",
+        "good",
+        "scratch"
+      ]
+    },
+    "pill": {
+      "present": true,
+      "train_good": 267,
+      "test_total": 167,
+      "ground_truth": 141,
+      "expected": [
+        267,
+        167
+      ],
+      "match": true,
+      "defect_types": [
+        "color",
+        "combined",
+        "contamination",
+        "crack",
+        "faulty_imprint",
+        "good",
+        "pill_type",
+        "scratch"
+      ]
+    },
+    "screw": {
+      "present": true,
+      "train_good": 320,
+      "test_total": 160,
+      "ground_truth": 119,
+      "expected": [
+        320,
+        160
+      ],
+      "match": true,
+      "defect_types": [
+        "good",
+        "manipulated_front",
+        "scratch_head",
+        "scratch_neck",
+        "thread_side",
+        "thread_top"
+      ]
+    },
+    "tile": {
+      "present": true,
+      "train_good": 230,
+      "test_total": 117,
+      "ground_truth": 84,
+      "expected": [
+        230,
+        117
+      ],
+      "match": true,
+      "defect_types": [
+        "crack",
+        "glue_strip",
+        "good",
+        "gray_stroke",
+        "oil",
+        "rough"
+      ]
+    },
+    "toothbrush": {
+      "present": true,
+      "train_good": 60,
+      "test_total": 42,
+      "ground_truth": 30,
+      "expected": [
+        60,
+        42
+      ],
+      "match": true,
+      "defect_types": [
+        "defective",
+        "good"
+      ]
+    },
+    "transistor": {
+      "present": true,
+      "train_good": 213,
+      "test_total": 100,
+      "ground_truth": 40,
+      "expected": [
+        213,
+        100
+      ],
+      "match": true,
+      "defect_types": [
+        "bent_lead",
+        "cut_lead",
+        "damaged_case",
+        "good",
+        "misplaced"
+      ]
+    },
+    "wood": {
+      "present": true,
+      "train_good": 247,
+      "test_total": 79,
+      "ground_truth": 60,
+      "expected": [
+        247,
+        79
+      ],
+      "match": true,
+      "defect_types": [
+        "color",
+        "combined",
+        "good",
+        "hole",
+        "liquid",
+        "scratch"
+      ]
+    },
+    "zipper": {
+      "present": true,
+      "train_good": 240,
+      "test_total": 151,
+      "ground_truth": 119,
+      "expected": [
+        240,
+        151
+      ],
+      "match": true,
+      "defect_types": [
+        "broken_teeth",
+        "combined",
+        "fabric_border",
+        "fabric_interior",
+        "good",
+        "rough",
+        "split_teeth",
+        "squeezed_teeth"
+      ]
+    }
+  },
+  "summary": {
+    "train_total": 3629,
+    "test_total": 1725,
+    "train_expected": 3629,
+    "test_expected": 1725
+  },
+  "decode": {
+    "checked": 400,
+    "bad": [],
+    "bad_count": 0
+  }
+}
