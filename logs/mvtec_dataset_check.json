@@ -1,46 +1,17 @@
 {
-  "root": "F:\\research\\tmp\\synthetic_mvtec",
+  "root": "F:\\research\\tmp\\extract_test\\data",
   "exists": true,
   "categories": {
     "bottle": {
-      "train_good": 100,
-      "test_total": 8,
-      "test_good": 4,
+      "train_good": 4,
+      "test_total": 1,
+      "test_good": 0,
       "test_defect_dirs": [
-        "broken",
-        "good"
+        "hole"
       ],
-      "ground_truth": 4,
+      "ground_truth": 1,
       "sizes": {
-        "(16, 16)": 2
-      },
-      "readable": true
-    },
-    "screw": {
-      "train_good": 100,
-      "test_total": 8,
-      "test_good": 4,
-      "test_defect_dirs": [
-        "broken",
-        "good"
-      ],
-      "ground_truth": 4,
-      "sizes": {
-        "(16, 16)": 2
-      },
-      "readable": true
-    },
-    "tile": {
-      "train_good": 100,
-      "test_total": 8,
-      "test_good": 4,
-      "test_defect_dirs": [
-        "broken",
-        "good"
-      ],
-      "ground_truth": 4,
-      "sizes": {
-        "(16, 16)": 2
+        "(32, 32)": 2
       },
       "readable": true
     }
