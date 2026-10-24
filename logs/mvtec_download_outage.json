@@ -1,0 +1,18 @@
+﻿[
+    {
+        "file":  "bottle.tar.xz",
+        "http":  "404"
+    },
+    {
+        "file":  "tile.tar.xz",
+        "http":  "404"
+    },
+    {
+        "file":  "screw.tar.xz",
+        "http":  "404"
+    },
+    {
+        "file":  "mvtec_anomaly_detection.tar.xz",
+        "http":  "404"
+    }
+]
